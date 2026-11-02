@@ -23,7 +23,7 @@ Prerequisites: Python 3.11 Conda environment, CUDA-enabled PyTorch, official YOL
 
 ```cmd
 conda activate appledetecting
-cd /d D:\LXY\Projects\AppleDetecting
+cd /d PATH_TO_YOUR_CLONED_REPOSITORY
 python -m pip install -e ".[dev]"
 python scripts\check_environment.py
 python -m streamlit run app\main.py
@@ -84,3 +84,11 @@ python -m pytest -q
 ## License
 
 MIT license covers **newly authored source code only**. The original competition report, source images, pretrained models, and upstream YOLOv5/ZoeDepth code retain their respective rights and licenses. Review these separately before redistributing.
+
+## Authorship, acknowledgments and publication
+
+AppleDetecting grew out of a team-authored submission to **2024 APMCM, Problem A**. The competition research and original report were collaborative work. The current repository is a subsequent software reconstruction, with a different YOLOv5s baseline, new engineering infrastructure, and an interactive demo. It should not be interpreted as an exact reproduction of the original YOLOv5x experiments.
+
+The original report is included at [docs/original_report.pdf](docs/original_report.pdf) with the team's agreement to publish. **The report is not covered by this repository's MIT software license.** The team retains its authorship; citations, figures and other third-party content in the report may have separate rights. Please see [Attribution and rights](docs/ATTRIBUTION.md) and the [Public release checklist](docs/PUBLICATION.md). No dataset or model checkpoint redistribution rights are implied by inclusion of code or results.
+
+If you use this project in academic work, credit the original APMCM team for the competition research and distinguish it from the subsequent software implementation. Full contributor names are not published here without their approval.
