@@ -1,0 +1,7 @@
+# Historical pseudo-label dataset; replace path if stored elsewhere.
+path: ../datasets/apple_pseudo
+train: images/train
+val: images/val
+test: images/test
+nc: 1
+names: [apple]

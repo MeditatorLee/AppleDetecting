@@ -1,0 +1,30 @@
+# Local environments and Python build products
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.env
+# Third-party repos and downloaded assets
+external/
+datasets/
+data/
+runs/
+outputs/
+reports/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.safetensors
+*.npz
+*.zip
+# Keep the versioned mapping, but ignore generated model artifacts
+models/maturity_report/
+# Personal OS files
+.DS_Store
+Thumbs.db
