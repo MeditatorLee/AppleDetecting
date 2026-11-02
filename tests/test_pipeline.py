@@ -15,7 +15,7 @@ def test_parse(tmp_path):
     d=parse_labels(p,(100,200));assert len(d)==1;assert np.allclose(d[0]['xyxy'],[40,60,60,140])
 def test_maturity(tmp_path):
     image=Image.new('RGB',(40,40),'red');assert features(image,[0,0,40,40]).shape==(32,)
-    rng=np.random.default_rng(42);x=np.concatenate([rng.normal(i,.02,(12,32)) for i in (0,1,2)])
+    rng=np.random.default_rng(42);x=rng.normal(0, .2, (36,32))
     centers,labels=fit(x);assert centers.shape==(3,32)
     p=tmp_path/'ref.npz';save(p,centers,{'n':36});c,metadata=load(p)
     assert metadata['n']==36 and assign(x[:3],c).shape==(3,)
