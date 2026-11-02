@@ -67,6 +67,36 @@ The training dataset contains **historical unreviewed pseudo-labels**. Metrics b
 
 ![Historical confusion matrix](assets/confusion_matrix.png)
 
+## HSV-based maturity clustering — training results
+
+The maturity pipeline extracts hue (H) and saturation (S) histograms from elliptical apple regions in the **training split**, then fits a three-cluster spectral model. For new detections, the demo assigns each apple to the nearest saved cluster centroid. The value (V) channel is shown as a descriptive diagnostic but is **not used for clustering**.
+
+| Cluster | Interpreted maturity | Training crops | Main hue characteristic |
+|:---:|---|---:|---|
+| **0** | Raw | 51 | Yellow-green hues, mainly around 60°–90° |
+| **1** | Fully Mature | 526 | Concentrated red hues near 0°/360° |
+| **2** | Half Mature | 996 | Broader red-orange distribution |
+
+**Total:** 1,573 training apple crops represented in these figures. The cluster IDs and maturity names are a user-defined interpretation of **unsupervised color groupings**, not independently verified ripeness ground truth. Re-fitting the reference model may permute cluster IDs.
+
+### Hue — circular color distribution
+
+Each fan-shaped sector represents a hue interval; its radial length shows the mean fraction of pixels per apple, averaged within that cluster.
+
+![Hue distributions for the three training apple clusters](assets/hue_distribution.png)
+
+### Saturation — color-intensity distribution
+
+The red-gradient bars encode saturation from low to high. They represent saturation magnitudes, not the actual color of each source pixel.
+
+![Saturation distributions for the three training apple clusters](assets/saturation_distribution.png)
+
+### Value — brightness distribution
+
+Grayscale bars encode HSV value (brightness) from dark to light. Lighting conditions can affect these distributions, which is why V is not included in the clustering feature vector.
+
+![Value distributions for the three training apple clusters](assets/value_distribution.png)
+
 ## Reproducibility and limitations
 
 - Original competition paper used **YOLOv5x**, but this reconstruction trained **YOLOv5s** on the RTX 4060 Laptop GPU. They are not the same model or experiment.
